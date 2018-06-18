@@ -28,91 +28,409 @@ public class EasyCut extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlLogin = new javax.swing.JPanel();
+        logLblLogo = new javax.swing.JLabel();
+        logLblUsuario = new javax.swing.JLabel();
+        LogTxtUsuario = new javax.swing.JTextField();
+        logLblSenha = new javax.swing.JLabel();
+        logPassSenha = new javax.swing.JPasswordField();
+        logBttEntrar = new javax.swing.JButton();
+        logBttCadastrarSe = new javax.swing.JButton();
         pnlCadastro = new javax.swing.JPanel();
+        cadLblLogo = new javax.swing.JLabel();
+        cadLblTitulo = new javax.swing.JLabel();
+        cadlblNome = new javax.swing.JLabel();
+        cadTxtNome = new javax.swing.JTextField();
+        cadLblCPF = new javax.swing.JLabel();
+        cadTxtCPF = new javax.swing.JTextField();
+        cadLblUsuario = new javax.swing.JLabel();
+        cadTxtUsuario = new javax.swing.JTextField();
+        cadLblSenha = new javax.swing.JLabel();
+        cadPassSenha = new javax.swing.JPasswordField();
+        cadBttCadastrar = new javax.swing.JButton();
+        cadBttEntrar = new javax.swing.JButton();
         pnlCliente = new javax.swing.JPanel();
+        cliLblLogo = new javax.swing.JLabel();
+        cliLblOla = new javax.swing.JLabel();
+        cliSeparador = new javax.swing.JSeparator();
+        cliBttReservarHorario = new javax.swing.JButton();
+        cliBttExcluirReserva = new javax.swing.JButton();
+        cliBttSair = new javax.swing.JButton();
         pnlReservarHorario = new javax.swing.JPanel();
-        pnlExcluirHorario = new javax.swing.JPanel();
+        resLblTitulo = new javax.swing.JLabel();
+        resLblServico = new javax.swing.JLabel();
+        resBoxServico = new javax.swing.JComboBox<>();
+        resLblFuncionario = new javax.swing.JLabel();
+        resBoxFuncionario = new javax.swing.JComboBox<>();
+        resLblData = new javax.swing.JLabel();
+        resChoData = new datechooser.beans.DateChooserCombo();
+        resLblHorario = new javax.swing.JLabel();
+        resScrHorario = new javax.swing.JScrollPane();
+        resLstHorario = new javax.swing.JList<>();
+        resBttReservar = new javax.swing.JButton();
+        resBttCancelar = new javax.swing.JButton();
+        resBttSair = new javax.swing.JButton();
+        pnlExcluirReserva = new javax.swing.JPanel();
         pnlFuncionario = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EasyCut");
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(400, 600));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
         pnlLogin.setBackground(new java.awt.Color(255, 255, 255));
+
+        logLblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/logoEasyCut.png"))); // NOI18N
+
+        logLblUsuario.setForeground(new java.awt.Color(102, 0, 153));
+        logLblUsuario.setText("Usuário");
+
+        logLblSenha.setForeground(new java.awt.Color(102, 0, 153));
+        logLblSenha.setText("Senha");
+
+        logBttEntrar.setBackground(new java.awt.Color(102, 0, 153));
+        logBttEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        logBttEntrar.setText("Entrar");
+
+        logBttCadastrarSe.setBackground(new java.awt.Color(255, 255, 255));
+        logBttCadastrarSe.setForeground(new java.awt.Color(102, 0, 153));
+        logBttCadastrarSe.setText("Cadastrar-se");
+        logBttCadastrarSe.setBorder(null);
+        logBttCadastrarSe.setBorderPainted(false);
+        logBttCadastrarSe.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
         pnlLogin.setLayout(pnlLoginLayout);
         pnlLoginLayout.setHorizontalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(pnlLoginLayout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(logLblLogo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
+                .addContainerGap(103, Short.MAX_VALUE)
+                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
+                        .addComponent(logBttEntrar)
+                        .addGap(161, 161, 161))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
+                        .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(logBttCadastrarSe)
+                            .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(logPassSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(logLblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(LogTxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(logLblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(97, 97, 97))))
         );
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(pnlLoginLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(logLblLogo)
+                .addGap(40, 40, 40)
+                .addComponent(logLblUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LogTxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(logLblSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(logPassSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(logBttEntrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(logBttCadastrarSe)
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlLogin, "card2");
 
         pnlCadastro.setBackground(new java.awt.Color(255, 255, 255));
 
+        cadLblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/logoEasyCut.png"))); // NOI18N
+
+        cadLblTitulo.setBackground(new java.awt.Color(102, 0, 153));
+        cadLblTitulo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cadLblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        cadLblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cadLblTitulo.setText("Cadastro");
+        cadLblTitulo.setOpaque(true);
+
+        cadlblNome.setForeground(new java.awt.Color(102, 0, 153));
+        cadlblNome.setText("Nome");
+
+        cadLblCPF.setForeground(new java.awt.Color(102, 0, 153));
+        cadLblCPF.setText("CPF");
+
+        cadLblUsuario.setForeground(new java.awt.Color(102, 0, 153));
+        cadLblUsuario.setText("Usuário");
+
+        cadLblSenha.setForeground(new java.awt.Color(102, 0, 153));
+        cadLblSenha.setText("Senha");
+
+        cadBttCadastrar.setBackground(new java.awt.Color(102, 0, 153));
+        cadBttCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        cadBttCadastrar.setText("Cadastrar");
+
+        cadBttEntrar.setBackground(new java.awt.Color(255, 255, 255));
+        cadBttEntrar.setForeground(new java.awt.Color(102, 0, 153));
+        cadBttEntrar.setText("Entrar");
+        cadBttEntrar.setBorder(null);
+        cadBttEntrar.setBorderPainted(false);
+        cadBttEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         javax.swing.GroupLayout pnlCadastroLayout = new javax.swing.GroupLayout(pnlCadastro);
         pnlCadastro.setLayout(pnlCadastroLayout);
         pnlCadastroLayout.setHorizontalGroup(
             pnlCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCadastroLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cadBttEntrar)
+                    .addGroup(pnlCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cadLblCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cadTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cadlblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cadLblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cadTxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cadLblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cadPassSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cadTxtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(97, 97, 97))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCadastroLayout.createSequentialGroup()
+                .addComponent(cadLblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(pnlCadastroLayout.createSequentialGroup()
+                .addGroup(pnlCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCadastroLayout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(cadLblLogo))
+                    .addGroup(pnlCadastroLayout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(cadBttCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlCadastroLayout.setVerticalGroup(
             pnlCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(pnlCadastroLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(cadLblLogo)
+                .addGap(18, 18, 18)
+                .addComponent(cadLblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cadlblNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cadTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cadLblCPF)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cadTxtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cadLblUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cadTxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cadLblSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cadPassSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cadBttCadastrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cadBttEntrar)
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlCadastro, "card2");
+        getContentPane().add(pnlCadastro, "card3");
 
         pnlCliente.setBackground(new java.awt.Color(255, 255, 255));
+
+        cliLblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/logoEasyCut.png"))); // NOI18N
+
+        cliLblOla.setForeground(new java.awt.Color(102, 0, 153));
+        cliLblOla.setText("Olá Usuário!");
+
+        cliSeparador.setBackground(new java.awt.Color(204, 204, 204));
+        cliSeparador.setForeground(new java.awt.Color(153, 153, 153));
+
+        cliBttReservarHorario.setBackground(new java.awt.Color(102, 0, 153));
+        cliBttReservarHorario.setForeground(new java.awt.Color(255, 255, 255));
+        cliBttReservarHorario.setText("Reservar Horário");
+
+        cliBttExcluirReserva.setBackground(new java.awt.Color(102, 0, 153));
+        cliBttExcluirReserva.setForeground(new java.awt.Color(255, 255, 255));
+        cliBttExcluirReserva.setText("Excluir Reserva");
+
+        cliBttSair.setBackground(new java.awt.Color(255, 255, 255));
+        cliBttSair.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cliBttSair.setForeground(new java.awt.Color(102, 0, 153));
+        cliBttSair.setText("(sair)");
+        cliBttSair.setBorder(null);
+        cliBttSair.setBorderPainted(false);
+        cliBttSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout pnlClienteLayout = new javax.swing.GroupLayout(pnlCliente);
         pnlCliente.setLayout(pnlClienteLayout);
         pnlClienteLayout.setHorizontalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(pnlClienteLayout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(cliLblLogo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlClienteLayout.createSequentialGroup()
+                .addContainerGap(103, Short.MAX_VALUE)
+                .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cliBttSair, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cliBttReservarHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cliSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cliLblOla, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cliBttExcluirReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97))
         );
         pnlClienteLayout.setVerticalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(pnlClienteLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(cliLblLogo)
+                .addGap(40, 40, 40)
+                .addComponent(cliLblOla)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cliSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cliBttReservarHorario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cliBttExcluirReserva)
+                .addGap(18, 18, 18)
+                .addComponent(cliBttSair)
+                .addContainerGap(274, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlCliente, "card2");
+        getContentPane().add(pnlCliente, "card4");
 
         pnlReservarHorario.setBackground(new java.awt.Color(255, 255, 255));
+
+        resLblTitulo.setBackground(new java.awt.Color(102, 0, 153));
+        resLblTitulo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        resLblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        resLblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        resLblTitulo.setText("Reservar Horário");
+        resLblTitulo.setOpaque(true);
+
+        resLblServico.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        resLblServico.setForeground(new java.awt.Color(102, 0, 153));
+        resLblServico.setText("Escolha o serviço:");
+
+        resBoxServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        resLblFuncionario.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        resLblFuncionario.setForeground(new java.awt.Color(102, 0, 153));
+        resLblFuncionario.setText("Escolha o funcionário:");
+
+        resBoxFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        resLblData.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        resLblData.setForeground(new java.awt.Color(102, 0, 153));
+        resLblData.setText("Escolha a data:");
+
+        resLblHorario.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        resLblHorario.setForeground(new java.awt.Color(102, 0, 153));
+        resLblHorario.setText("Escolha o horário:");
+
+        resLstHorario.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        resScrHorario.setViewportView(resLstHorario);
+
+        resBttReservar.setBackground(new java.awt.Color(102, 0, 153));
+        resBttReservar.setForeground(new java.awt.Color(255, 255, 255));
+        resBttReservar.setText("Reservar");
+
+        resBttCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        resBttCancelar.setForeground(new java.awt.Color(102, 0, 153));
+        resBttCancelar.setText("Cancelar");
+
+        resBttSair.setBackground(new java.awt.Color(255, 255, 255));
+        resBttSair.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        resBttSair.setForeground(new java.awt.Color(102, 0, 153));
+        resBttSair.setText("(sair)");
+        resBttSair.setBorder(null);
+        resBttSair.setBorderPainted(false);
+        resBttSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout pnlReservarHorarioLayout = new javax.swing.GroupLayout(pnlReservarHorario);
         pnlReservarHorario.setLayout(pnlReservarHorarioLayout);
         pnlReservarHorarioLayout.setHorizontalGroup(
             pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(pnlReservarHorarioLayout.createSequentialGroup()
+                .addComponent(resLblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(pnlReservarHorarioLayout.createSequentialGroup()
+                .addGroup(pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlReservarHorarioLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addGroup(pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(resScrHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resChoData, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resBoxServico, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resLblServico, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resLblFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resBoxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resLblData, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resLblHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlReservarHorarioLayout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addGroup(pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(resBttCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resBttReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resBttSair, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlReservarHorarioLayout.setVerticalGroup(
             pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(pnlReservarHorarioLayout.createSequentialGroup()
+                .addComponent(resLblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(resLblServico)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resBoxServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resLblFuncionario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resBoxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resLblData)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resChoData, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resLblHorario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resScrHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resBttReservar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(resBttCancelar)
+                .addGap(18, 18, 18)
+                .addComponent(resBttSair)
+                .addGap(0, 73, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlReservarHorario, "card2");
+        getContentPane().add(pnlReservarHorario, "card5");
 
-        pnlExcluirHorario.setBackground(new java.awt.Color(255, 255, 255));
+        pnlExcluirReserva.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout pnlExcluirHorarioLayout = new javax.swing.GroupLayout(pnlExcluirHorario);
-        pnlExcluirHorario.setLayout(pnlExcluirHorarioLayout);
-        pnlExcluirHorarioLayout.setHorizontalGroup(
-            pnlExcluirHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlExcluirReservaLayout = new javax.swing.GroupLayout(pnlExcluirReserva);
+        pnlExcluirReserva.setLayout(pnlExcluirReservaLayout);
+        pnlExcluirReservaLayout.setHorizontalGroup(
+            pnlExcluirReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
-        pnlExcluirHorarioLayout.setVerticalGroup(
-            pnlExcluirHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlExcluirReservaLayout.setVerticalGroup(
+            pnlExcluirReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        getContentPane().add(pnlExcluirHorario, "card2");
+        getContentPane().add(pnlExcluirReserva, "card6");
 
         pnlFuncionario.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -127,7 +445,7 @@ public class EasyCut extends javax.swing.JFrame {
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        getContentPane().add(pnlFuncionario, "card2");
+        getContentPane().add(pnlFuncionario, "card7");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -168,11 +486,49 @@ public class EasyCut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField LogTxtUsuario;
+    private javax.swing.JButton cadBttCadastrar;
+    private javax.swing.JButton cadBttEntrar;
+    private javax.swing.JLabel cadLblCPF;
+    private javax.swing.JLabel cadLblLogo;
+    private javax.swing.JLabel cadLblSenha;
+    private javax.swing.JLabel cadLblTitulo;
+    private javax.swing.JLabel cadLblUsuario;
+    private javax.swing.JPasswordField cadPassSenha;
+    private javax.swing.JTextField cadTxtCPF;
+    private javax.swing.JTextField cadTxtNome;
+    private javax.swing.JTextField cadTxtUsuario;
+    private javax.swing.JLabel cadlblNome;
+    private javax.swing.JButton cliBttExcluirReserva;
+    private javax.swing.JButton cliBttReservarHorario;
+    private javax.swing.JButton cliBttSair;
+    private javax.swing.JLabel cliLblLogo;
+    private javax.swing.JLabel cliLblOla;
+    private javax.swing.JSeparator cliSeparador;
+    private javax.swing.JButton logBttCadastrarSe;
+    private javax.swing.JButton logBttEntrar;
+    private javax.swing.JLabel logLblLogo;
+    private javax.swing.JLabel logLblSenha;
+    private javax.swing.JLabel logLblUsuario;
+    private javax.swing.JPasswordField logPassSenha;
     private javax.swing.JPanel pnlCadastro;
     private javax.swing.JPanel pnlCliente;
-    private javax.swing.JPanel pnlExcluirHorario;
+    private javax.swing.JPanel pnlExcluirReserva;
     private javax.swing.JPanel pnlFuncionario;
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JPanel pnlReservarHorario;
+    private javax.swing.JComboBox<String> resBoxFuncionario;
+    private javax.swing.JComboBox<String> resBoxServico;
+    private javax.swing.JButton resBttCancelar;
+    private javax.swing.JButton resBttReservar;
+    private javax.swing.JButton resBttSair;
+    private datechooser.beans.DateChooserCombo resChoData;
+    private javax.swing.JLabel resLblData;
+    private javax.swing.JLabel resLblFuncionario;
+    private javax.swing.JLabel resLblHorario;
+    private javax.swing.JLabel resLblServico;
+    private javax.swing.JLabel resLblTitulo;
+    private javax.swing.JList<String> resLstHorario;
+    private javax.swing.JScrollPane resScrHorario;
     // End of variables declaration//GEN-END:variables
 }
