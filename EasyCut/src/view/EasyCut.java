@@ -27,6 +27,7 @@ public class EasyCut extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlPrincipal = new javax.swing.JPanel();
         pnlLogin = new javax.swing.JPanel();
         logLblLogo = new javax.swing.JLabel();
         logLblUsuario = new javax.swing.JLabel();
@@ -72,11 +73,14 @@ public class EasyCut extends javax.swing.JFrame {
         pnlExcluirReserva = new javax.swing.JPanel();
         pnlFuncionario = new javax.swing.JPanel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EasyCut");
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(400, 600));
         setResizable(false);
-        getContentPane().setLayout(new java.awt.CardLayout());
+
+        pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+        pnlPrincipal.setLayout(new java.awt.CardLayout());
 
         pnlLogin.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -91,6 +95,11 @@ public class EasyCut extends javax.swing.JFrame {
         logBttEntrar.setBackground(new java.awt.Color(102, 0, 153));
         logBttEntrar.setForeground(new java.awt.Color(255, 255, 255));
         logBttEntrar.setText("Entrar");
+        logBttEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logBttEntrarActionPerformed(evt);
+            }
+        });
 
         logBttCadastrarSe.setBackground(new java.awt.Color(255, 255, 255));
         logBttCadastrarSe.setForeground(new java.awt.Color(102, 0, 153));
@@ -143,7 +152,7 @@ public class EasyCut extends javax.swing.JFrame {
                 .addContainerGap(242, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlLogin, "card2");
+        pnlPrincipal.add(pnlLogin, "card2");
 
         pnlCadastro.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -240,7 +249,7 @@ public class EasyCut extends javax.swing.JFrame {
                 .addContainerGap(117, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlCadastro, "card3");
+        pnlPrincipal.add(pnlCadastro, "card3");
 
         pnlCliente.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -304,7 +313,7 @@ public class EasyCut extends javax.swing.JFrame {
                 .addContainerGap(274, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlCliente, "card4");
+        pnlPrincipal.add(pnlCliente, "card4");
 
         pnlReservarHorario.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -319,32 +328,45 @@ public class EasyCut extends javax.swing.JFrame {
         resLblServico.setForeground(new java.awt.Color(102, 0, 153));
         resLblServico.setText("Escolha o serviço:");
 
-        resBoxServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        resBoxServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Serviço 1", "Serviço 2", "Serviço 3" }));
 
         resLblFuncionario.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         resLblFuncionario.setForeground(new java.awt.Color(102, 0, 153));
         resLblFuncionario.setText("Escolha o funcionário:");
+        resLblFuncionario.setEnabled(false);
+        resLblFuncionario.setFocusable(false);
 
-        resBoxFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        resBoxFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Funcionário 1", "Funcionário 2", "Funcionário 3" }));
+        resBoxFuncionario.setEnabled(false);
 
         resLblData.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         resLblData.setForeground(new java.awt.Color(102, 0, 153));
         resLblData.setText("Escolha a data:");
+        resLblData.setEnabled(false);
+        resLblData.setFocusable(false);
+
+        resChoData.setEnabled(false);
 
         resLblHorario.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         resLblHorario.setForeground(new java.awt.Color(102, 0, 153));
         resLblHorario.setText("Escolha o horário:");
+        resLblHorario.setEnabled(false);
+        resLblHorario.setFocusable(false);
+
+        resScrHorario.setEnabled(false);
 
         resLstHorario.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        resLstHorario.setEnabled(false);
         resScrHorario.setViewportView(resLstHorario);
 
         resBttReservar.setBackground(new java.awt.Color(102, 0, 153));
         resBttReservar.setForeground(new java.awt.Color(255, 255, 255));
         resBttReservar.setText("Reservar");
+        resBttReservar.setEnabled(false);
 
         resBttCancelar.setBackground(new java.awt.Color(255, 255, 255));
         resBttCancelar.setForeground(new java.awt.Color(102, 0, 153));
@@ -405,17 +427,17 @@ public class EasyCut extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(resLblHorario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(resScrHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(resScrHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(resBttReservar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(resBttCancelar)
                 .addGap(18, 18, 18)
                 .addComponent(resBttSair)
-                .addGap(0, 73, Short.MAX_VALUE))
+                .addGap(0, 142, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlReservarHorario, "card5");
+        pnlPrincipal.add(pnlReservarHorario, "card5");
 
         pnlExcluirReserva.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -430,7 +452,7 @@ public class EasyCut extends javax.swing.JFrame {
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        getContentPane().add(pnlExcluirReserva, "card6");
+        pnlPrincipal.add(pnlExcluirReserva, "card6");
 
         pnlFuncionario.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -445,10 +467,37 @@ public class EasyCut extends javax.swing.JFrame {
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        getContentPane().add(pnlFuncionario, "card7");
+        pnlPrincipal.add(pnlFuncionario, "card7");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void alterarTela(javax.swing.JPanel pnl) {
+        pnlPrincipal.removeAll();
+        pnlPrincipal.add(pnl);
+        pnlPrincipal.repaint();
+        pnlPrincipal.revalidate();
+    }
+    
+    private void logBttEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logBttEntrarActionPerformed
+        // Validar login
+        // Se cliente:
+        alterarTela(pnlCliente);
+        
+        // Se funcionário:
+        //alterarTela(pnlFuncionario);
+    }//GEN-LAST:event_logBttEntrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -516,6 +565,7 @@ public class EasyCut extends javax.swing.JFrame {
     private javax.swing.JPanel pnlExcluirReserva;
     private javax.swing.JPanel pnlFuncionario;
     private javax.swing.JPanel pnlLogin;
+    private javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlReservarHorario;
     private javax.swing.JComboBox<String> resBoxFuncionario;
     private javax.swing.JComboBox<String> resBoxServico;
