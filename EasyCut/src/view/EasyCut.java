@@ -27,18 +27,107 @@ public class EasyCut extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        pnlLogin = new javax.swing.JPanel();
+        pnlCadastro = new javax.swing.JPanel();
+        pnlCliente = new javax.swing.JPanel();
+        pnlReservarHorario = new javax.swing.JPanel();
+        pnlExcluirHorario = new javax.swing.JPanel();
+        pnlFuncionario = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("EasyCut");
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new java.awt.CardLayout());
+
+        pnlLogin.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
+        pnlLogin.setLayout(pnlLoginLayout);
+        pnlLoginLayout.setHorizontalGroup(
+            pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        pnlLoginLayout.setVerticalGroup(
+            pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
+
+        getContentPane().add(pnlLogin, "card2");
+
+        pnlCadastro.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnlCadastroLayout = new javax.swing.GroupLayout(pnlCadastro);
+        pnlCadastro.setLayout(pnlCadastroLayout);
+        pnlCadastroLayout.setHorizontalGroup(
+            pnlCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        pnlCadastroLayout.setVerticalGroup(
+            pnlCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(pnlCadastro, "card2");
+
+        pnlCliente.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnlClienteLayout = new javax.swing.GroupLayout(pnlCliente);
+        pnlCliente.setLayout(pnlClienteLayout);
+        pnlClienteLayout.setHorizontalGroup(
+            pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        pnlClienteLayout.setVerticalGroup(
+            pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(pnlCliente, "card2");
+
+        pnlReservarHorario.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnlReservarHorarioLayout = new javax.swing.GroupLayout(pnlReservarHorario);
+        pnlReservarHorario.setLayout(pnlReservarHorarioLayout);
+        pnlReservarHorarioLayout.setHorizontalGroup(
+            pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        pnlReservarHorarioLayout.setVerticalGroup(
+            pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(pnlReservarHorario, "card2");
+
+        pnlExcluirHorario.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnlExcluirHorarioLayout = new javax.swing.GroupLayout(pnlExcluirHorario);
+        pnlExcluirHorario.setLayout(pnlExcluirHorarioLayout);
+        pnlExcluirHorarioLayout.setHorizontalGroup(
+            pnlExcluirHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        pnlExcluirHorarioLayout.setVerticalGroup(
+            pnlExcluirHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(pnlExcluirHorario, "card2");
+
+        pnlFuncionario.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnlFuncionarioLayout = new javax.swing.GroupLayout(pnlFuncionario);
+        pnlFuncionario.setLayout(pnlFuncionarioLayout);
+        pnlFuncionarioLayout.setHorizontalGroup(
+            pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        pnlFuncionarioLayout.setVerticalGroup(
+            pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(pnlFuncionario, "card2");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +168,11 @@ public class EasyCut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel pnlCadastro;
+    private javax.swing.JPanel pnlCliente;
+    private javax.swing.JPanel pnlExcluirHorario;
+    private javax.swing.JPanel pnlFuncionario;
+    private javax.swing.JPanel pnlLogin;
+    private javax.swing.JPanel pnlReservarHorario;
     // End of variables declaration//GEN-END:variables
 }

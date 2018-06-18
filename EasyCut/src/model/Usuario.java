@@ -1,4 +1,4 @@
-package easycut;
+package model;
 
 public class Usuario {
 
