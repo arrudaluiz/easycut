@@ -70,7 +70,18 @@ public class EasyCut extends javax.swing.JFrame {
         resBttReservar = new javax.swing.JButton();
         resBttCancelar = new javax.swing.JButton();
         resBttSair = new javax.swing.JButton();
+        resLblOla = new javax.swing.JLabel();
+        resSeparador = new javax.swing.JSeparator();
         pnlExcluirReserva = new javax.swing.JPanel();
+        excLblTitulo = new javax.swing.JLabel();
+        excLblOla = new javax.swing.JLabel();
+        excBttSair = new javax.swing.JButton();
+        excSeparador = new javax.swing.JSeparator();
+        excLblReserva = new javax.swing.JLabel();
+        excBttExcluir = new javax.swing.JButton();
+        excBttCancelar = new javax.swing.JButton();
+        excScrReservas = new javax.swing.JScrollPane();
+        excTblReservas = new javax.swing.JTable();
         pnlFuncionario = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -123,7 +134,7 @@ public class EasyCut extends javax.swing.JFrame {
                 .addComponent(logLblLogo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
+                .addContainerGap(100, Short.MAX_VALUE)
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
                         .addComponent(logBttEntrar)
@@ -136,7 +147,7 @@ public class EasyCut extends javax.swing.JFrame {
                                 .addComponent(logLblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(logTxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(logLblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(97, 97, 97))))
+                        .addGap(100, 100, 100))))
         );
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +233,7 @@ public class EasyCut extends javax.swing.JFrame {
                         .addComponent(cadLblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cadPassSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cadTxtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(97, 97, 97))
+                .addGap(100, 100, 100))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCadastroLayout.createSequentialGroup()
                 .addComponent(cadLblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -319,14 +330,14 @@ public class EasyCut extends javax.swing.JFrame {
                 .addComponent(cliLblLogo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlClienteLayout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
+                .addContainerGap(100, Short.MAX_VALUE)
                 .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cliBttSair, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cliBttReservarHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cliSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cliLblOla, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cliBttExcluirReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(97, 97, 97))
+                .addGap(100, 100, 100))
         );
         pnlClienteLayout.setVerticalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -407,6 +418,8 @@ public class EasyCut extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        resLstHorario.setSelectionBackground(new java.awt.Color(102, 0, 153));
+        resLstHorario.setSelectionForeground(new java.awt.Color(255, 255, 255));
         resLstHorario.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 resLstHorarioValueChanged(evt);
@@ -446,6 +459,12 @@ public class EasyCut extends javax.swing.JFrame {
             }
         });
 
+        resLblOla.setForeground(new java.awt.Color(102, 0, 153));
+        resLblOla.setText("Olá Usuário!");
+
+        resSeparador.setBackground(new java.awt.Color(204, 204, 204));
+        resSeparador.setForeground(new java.awt.Color(153, 153, 153));
+
         javax.swing.GroupLayout pnlReservarHorarioLayout = new javax.swing.GroupLayout(pnlReservarHorario);
         pnlReservarHorario.setLayout(pnlReservarHorarioLayout);
         pnlReservarHorarioLayout.setHorizontalGroup(
@@ -456,28 +475,44 @@ public class EasyCut extends javax.swing.JFrame {
             .addGroup(pnlReservarHorarioLayout.createSequentialGroup()
                 .addGroup(pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlReservarHorarioLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
                         .addGroup(pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(resScrHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resChoData, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resBoxServico, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resLblServico, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resLblFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resBoxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resLblData, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resLblHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlReservarHorarioLayout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addGroup(pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(resScrHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(resChoData, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(resBoxServico, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(resLblServico, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(resLblFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(resBoxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(resLblData, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(resLblHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlReservarHorarioLayout.createSequentialGroup()
+                                .addGap(151, 151, 151)
+                                .addGroup(pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(resBttCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(resBttReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlReservarHorarioLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(resSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlReservarHorarioLayout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addGroup(pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(resBttCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resBttReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resBttSair, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(resLblOla, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(resBttSair)))
+                .addContainerGap())
         );
         pnlReservarHorarioLayout.setVerticalGroup(
             pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlReservarHorarioLayout.createSequentialGroup()
                 .addComponent(resLblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlReservarHorarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(resLblOla)
+                    .addComponent(resBttSair))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(resLblServico)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -498,9 +533,7 @@ public class EasyCut extends javax.swing.JFrame {
                 .addComponent(resBttReservar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(resBttCancelar)
-                .addGap(18, 18, 18)
-                .addComponent(resBttSair)
-                .addGap(0, 142, Short.MAX_VALUE))
+                .addGap(0, 146, Short.MAX_VALUE))
         );
 
         pnlPrincipal.add(pnlReservarHorario, "card5");
@@ -508,15 +541,156 @@ public class EasyCut extends javax.swing.JFrame {
         pnlExcluirReserva.setBackground(new java.awt.Color(255, 255, 255));
         pnlExcluirReserva.setName("excluir"); // NOI18N
 
+        excLblTitulo.setBackground(new java.awt.Color(102, 0, 153));
+        excLblTitulo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        excLblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        excLblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        excLblTitulo.setText("Excluir Reservas");
+        excLblTitulo.setOpaque(true);
+
+        excLblOla.setForeground(new java.awt.Color(102, 0, 153));
+        excLblOla.setText("Olá Usuário!");
+
+        excBttSair.setBackground(new java.awt.Color(255, 255, 255));
+        excBttSair.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        excBttSair.setForeground(new java.awt.Color(102, 0, 153));
+        excBttSair.setText("(sair)");
+        excBttSair.setBorder(null);
+        excBttSair.setBorderPainted(false);
+        excBttSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        excBttSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excBttSairActionPerformed(evt);
+            }
+        });
+
+        excSeparador.setBackground(new java.awt.Color(204, 204, 204));
+        excSeparador.setForeground(new java.awt.Color(153, 153, 153));
+
+        excLblReserva.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        excLblReserva.setForeground(new java.awt.Color(102, 0, 153));
+        excLblReserva.setText("Horários reservados:");
+
+        excBttExcluir.setBackground(new java.awt.Color(102, 0, 153));
+        excBttExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        excBttExcluir.setText("Excluir");
+        excBttExcluir.setEnabled(false);
+        excBttExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excBttExcluirActionPerformed(evt);
+            }
+        });
+
+        excBttCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        excBttCancelar.setForeground(new java.awt.Color(102, 0, 153));
+        excBttCancelar.setText("Cancelar");
+        excBttCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excBttCancelarActionPerformed(evt);
+            }
+        });
+
+        excTblReservas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null,  new Boolean(false)},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Serviço", "Funcionário", "Data", "Hora", "Selecionar"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        excTblReservas.getTableHeader().setReorderingAllowed(false);
+        excTblReservas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                excTblReservasMouseClicked(evt);
+            }
+        });
+        excTblReservas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                excTblReservasKeyPressed(evt);
+            }
+        });
+        excScrReservas.setViewportView(excTblReservas);
+        if (excTblReservas.getColumnModel().getColumnCount() > 0) {
+            excTblReservas.getColumnModel().getColumn(0).setResizable(false);
+            excTblReservas.getColumnModel().getColumn(1).setResizable(false);
+            excTblReservas.getColumnModel().getColumn(2).setResizable(false);
+            excTblReservas.getColumnModel().getColumn(3).setResizable(false);
+            excTblReservas.getColumnModel().getColumn(4).setResizable(false);
+        }
+
         javax.swing.GroupLayout pnlExcluirReservaLayout = new javax.swing.GroupLayout(pnlExcluirReserva);
         pnlExcluirReserva.setLayout(pnlExcluirReservaLayout);
         pnlExcluirReservaLayout.setHorizontalGroup(
             pnlExcluirReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(pnlExcluirReservaLayout.createSequentialGroup()
+                .addComponent(excLblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(pnlExcluirReservaLayout.createSequentialGroup()
+                .addGroup(pnlExcluirReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlExcluirReservaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnlExcluirReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlExcluirReservaLayout.createSequentialGroup()
+                                .addComponent(excLblOla, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(excBttSair))
+                            .addGroup(pnlExcluirReservaLayout.createSequentialGroup()
+                                .addComponent(excSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(pnlExcluirReservaLayout.createSequentialGroup()
+                        .addGroup(pnlExcluirReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlExcluirReservaLayout.createSequentialGroup()
+                                .addGap(151, 151, 151)
+                                .addGroup(pnlExcluirReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(excBttCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(excBttExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlExcluirReservaLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(excScrReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(pnlExcluirReservaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(excLblReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlExcluirReservaLayout.setVerticalGroup(
             pnlExcluirReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(pnlExcluirReservaLayout.createSequentialGroup()
+                .addComponent(excLblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlExcluirReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(excLblOla)
+                    .addComponent(excBttSair))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(excSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(excLblReserva)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(excScrReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(excBttExcluir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(excBttCancelar)
+                .addGap(0, 205, Short.MAX_VALUE))
         );
 
         pnlPrincipal.add(pnlExcluirReserva, "card6");
@@ -570,9 +744,10 @@ public class EasyCut extends javax.swing.JFrame {
                 cadPassSenha.setText("");
                 break;
                 
+                /*
             case "cliente":
-                cliLblOla.setText("Olá " + logTxtUsuario.getText() + "!");
                 break;
+                */
                 
             case "reservar":
                 resChoData.setMinDate(resChoData.getDefaultPeriods().getFirstDate());
@@ -580,9 +755,13 @@ public class EasyCut extends javax.swing.JFrame {
                 break;
                 
             case "excluir":
+                // Carregar reservas do banco
+                //
+                for (int i = 0; i < excTblReservas.getRowCount(); i++) {
+                    excTblReservas.setValueAt(false, i, 4);
+                }
                 break;
         }
-            
     }
     
     private void logBttEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logBttEntrarActionPerformed
@@ -590,6 +769,9 @@ public class EasyCut extends javax.swing.JFrame {
         //
         // Se cliente:
         alterarTela(pnlCliente);
+        cliLblOla.setText("Olá " + logTxtUsuario.getText());
+        resLblOla.setText("Olá " + logTxtUsuario.getText());
+        excLblOla.setText("Olá " + logTxtUsuario.getText());
         
         // Se funcionário:
         //alterarTela(pnlFuncionario);
@@ -681,6 +863,38 @@ public class EasyCut extends javax.swing.JFrame {
         alterarTela(pnlLogin);
     }//GEN-LAST:event_resBttSairActionPerformed
 
+    private void excBttExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excBttExcluirActionPerformed
+        // Excluir reserva(s) selecionada(s)
+        //
+        alterarTela(pnlCliente);
+    }//GEN-LAST:event_excBttExcluirActionPerformed
+
+    private void excBttCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excBttCancelarActionPerformed
+        alterarTela(pnlCliente);
+    }//GEN-LAST:event_excBttCancelarActionPerformed
+
+    private void excBttSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excBttSairActionPerformed
+        // Deslogar usuário
+        //
+        alterarTela(pnlLogin);
+    }//GEN-LAST:event_excBttSairActionPerformed
+
+    private void excTblReservasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_excTblReservasMouseClicked
+        boolean reserva = false;
+        
+        for (int i = 0; i < excTblReservas.getRowCount(); i++) {
+            if (excTblReservas.getValueAt(i, 4).equals(true)) {
+                reserva = true;
+            }
+        }
+        
+        excBttExcluir.setEnabled(reserva);
+    }//GEN-LAST:event_excTblReservasMouseClicked
+
+    private void excTblReservasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_excTblReservasKeyPressed
+        System.out.println(excTblReservas.getColumnName(3));
+    }//GEN-LAST:event_excTblReservasKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -735,6 +949,15 @@ public class EasyCut extends javax.swing.JFrame {
     private javax.swing.JLabel cliLblLogo;
     private javax.swing.JLabel cliLblOla;
     private javax.swing.JSeparator cliSeparador;
+    private javax.swing.JButton excBttCancelar;
+    private javax.swing.JButton excBttExcluir;
+    private javax.swing.JButton excBttSair;
+    private javax.swing.JLabel excLblOla;
+    private javax.swing.JLabel excLblReserva;
+    private javax.swing.JLabel excLblTitulo;
+    private javax.swing.JScrollPane excScrReservas;
+    private javax.swing.JSeparator excSeparador;
+    private javax.swing.JTable excTblReservas;
     private javax.swing.JButton logBttCadastrarSe;
     private javax.swing.JButton logBttEntrar;
     private javax.swing.JLabel logLblLogo;
@@ -758,9 +981,11 @@ public class EasyCut extends javax.swing.JFrame {
     private javax.swing.JLabel resLblData;
     private javax.swing.JLabel resLblFuncionario;
     private javax.swing.JLabel resLblHorario;
+    private javax.swing.JLabel resLblOla;
     private javax.swing.JLabel resLblServico;
     private javax.swing.JLabel resLblTitulo;
     private javax.swing.JList<String> resLstHorario;
     private javax.swing.JScrollPane resScrHorario;
+    private javax.swing.JSeparator resSeparador;
     // End of variables declaration//GEN-END:variables
 }
