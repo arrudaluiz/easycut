@@ -185,6 +185,11 @@ public class EasyCut extends javax.swing.JFrame {
         cadBttCadastrar.setBackground(new java.awt.Color(102, 0, 153));
         cadBttCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         cadBttCadastrar.setText("Cadastrar");
+        cadBttCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadBttCadastrarActionPerformed(evt);
+            }
+        });
 
         cadBttEntrar.setBackground(new java.awt.Color(255, 255, 255));
         cadBttEntrar.setForeground(new java.awt.Color(102, 0, 153));
@@ -274,10 +279,20 @@ public class EasyCut extends javax.swing.JFrame {
         cliBttReservarHorario.setBackground(new java.awt.Color(102, 0, 153));
         cliBttReservarHorario.setForeground(new java.awt.Color(255, 255, 255));
         cliBttReservarHorario.setText("Reservar Horário");
+        cliBttReservarHorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cliBttReservarHorarioActionPerformed(evt);
+            }
+        });
 
         cliBttExcluirReserva.setBackground(new java.awt.Color(102, 0, 153));
         cliBttExcluirReserva.setForeground(new java.awt.Color(255, 255, 255));
         cliBttExcluirReserva.setText("Excluir Reserva");
+        cliBttExcluirReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cliBttExcluirReservaActionPerformed(evt);
+            }
+        });
 
         cliBttSair.setBackground(new java.awt.Color(255, 255, 255));
         cliBttSair.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -286,6 +301,11 @@ public class EasyCut extends javax.swing.JFrame {
         cliBttSair.setBorder(null);
         cliBttSair.setBorderPainted(false);
         cliBttSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cliBttSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cliBttSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlClienteLayout = new javax.swing.GroupLayout(pnlCliente);
         pnlCliente.setLayout(pnlClienteLayout);
@@ -339,6 +359,11 @@ public class EasyCut extends javax.swing.JFrame {
         resLblServico.setText("Escolha o serviço:");
 
         resBoxServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Serviço 1", "Serviço 2", "Serviço 3" }));
+        resBoxServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resBoxServicoActionPerformed(evt);
+            }
+        });
 
         resLblFuncionario.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         resLblFuncionario.setForeground(new java.awt.Color(102, 0, 153));
@@ -348,6 +373,11 @@ public class EasyCut extends javax.swing.JFrame {
 
         resBoxFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Funcionário 1", "Funcionário 2", "Funcionário 3" }));
         resBoxFuncionario.setEnabled(false);
+        resBoxFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resBoxFuncionarioActionPerformed(evt);
+            }
+        });
 
         resLblData.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         resLblData.setForeground(new java.awt.Color(102, 0, 153));
@@ -356,6 +386,11 @@ public class EasyCut extends javax.swing.JFrame {
         resLblData.setFocusable(false);
 
         resChoData.setEnabled(false);
+        resChoData.addSelectionChangedListener(new datechooser.events.SelectionChangedListener() {
+            public void onSelectionChange(datechooser.events.SelectionChangedEvent evt) {
+                resChoDataOnSelectionChange(evt);
+            }
+        });
 
         resLblHorario.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         resLblHorario.setForeground(new java.awt.Color(102, 0, 153));
@@ -363,20 +398,32 @@ public class EasyCut extends javax.swing.JFrame {
         resLblHorario.setEnabled(false);
         resLblHorario.setFocusable(false);
 
-        resScrHorario.setEnabled(false);
-
         resLstHorario.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" };
+            String[] strings = { "", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        resLstHorario.setEnabled(false);
+        resLstHorario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resLstHorarioMouseClicked(evt);
+            }
+        });
+        resLstHorario.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                resLstHorarioValueChanged(evt);
+            }
+        });
         resScrHorario.setViewportView(resLstHorario);
 
         resBttReservar.setBackground(new java.awt.Color(102, 0, 153));
         resBttReservar.setForeground(new java.awt.Color(255, 255, 255));
         resBttReservar.setText("Reservar");
         resBttReservar.setEnabled(false);
+        resBttReservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resBttReservarActionPerformed(evt);
+            }
+        });
 
         resBttCancelar.setBackground(new java.awt.Color(255, 255, 255));
         resBttCancelar.setForeground(new java.awt.Color(102, 0, 153));
@@ -523,6 +570,80 @@ public class EasyCut extends javax.swing.JFrame {
         logTxtUsuario.setText("");
         logPassSenha.setText("");
     }//GEN-LAST:event_cadBttEntrarActionPerformed
+
+    private void cadBttCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBttCadastrarActionPerformed
+        // Validar cadastro
+        //
+        alterarTela(pnlLogin);
+        logTxtUsuario.setText("");
+        logPassSenha.setText("");
+    }//GEN-LAST:event_cadBttCadastrarActionPerformed
+
+    private void cliBttReservarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cliBttReservarHorarioActionPerformed
+        alterarTela(pnlReservarHorario);
+        resChoData.setMinDate(resChoData.getDefaultPeriods().getFirstDate());
+        resBoxServico.setSelectedIndex(0);
+    }//GEN-LAST:event_cliBttReservarHorarioActionPerformed
+
+    private void cliBttExcluirReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cliBttExcluirReservaActionPerformed
+        alterarTela(pnlExcluirReserva);
+    }//GEN-LAST:event_cliBttExcluirReservaActionPerformed
+
+    private void cliBttSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cliBttSairActionPerformed
+        alterarTela(pnlLogin);
+    }//GEN-LAST:event_cliBttSairActionPerformed
+
+    private void resBoxServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resBoxServicoActionPerformed
+        resBoxFuncionario.setSelectedIndex(0);
+        
+        if (resBoxServico.getSelectedIndex() == 0) {
+            resBoxFuncionario.setEnabled(false);
+            resLblFuncionario.setEnabled(false);
+        } else {
+            resLblFuncionario.setEnabled(true);
+            resBoxFuncionario.setEnabled(true);
+        }
+    }//GEN-LAST:event_resBoxServicoActionPerformed
+
+    private void resBoxFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resBoxFuncionarioActionPerformed
+        resChoData.setSelectedDate(null);
+        
+        if (resBoxFuncionario.getSelectedIndex() == 0) {
+            resChoData.setEnabled(false);
+            resLblData.setEnabled(false);
+        } else {
+            resLblData.setEnabled(true);
+            resChoData.setEnabled(true);
+        }
+    }//GEN-LAST:event_resBoxFuncionarioActionPerformed
+
+    private void resChoDataOnSelectionChange(datechooser.events.SelectionChangedEvent evt) {//GEN-FIRST:event_resChoDataOnSelectionChange
+        resLstHorario.setSelectedIndex(0);
+        
+        if (resChoData.getSelectedDate() == null) {
+            resLstHorario.setVisible(false);
+        } else {
+            resLstHorario.setVisible(true);
+        }
+    }//GEN-LAST:event_resChoDataOnSelectionChange
+
+    private void resLstHorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resLstHorarioMouseClicked
+        
+    }//GEN-LAST:event_resLstHorarioMouseClicked
+
+    private void resLstHorarioValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_resLstHorarioValueChanged
+        if (resLstHorario.getSelectedIndex() == 0) {
+            resBttReservar.setEnabled(false);
+        } else {
+            resBttReservar.setEnabled(true);
+        }
+    }//GEN-LAST:event_resLstHorarioValueChanged
+
+    private void resBttReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resBttReservarActionPerformed
+        // Registrar reserva
+        //
+        alterarTela(pnlCliente);
+    }//GEN-LAST:event_resBttReservarActionPerformed
 
     /**
      * @param args the command line arguments

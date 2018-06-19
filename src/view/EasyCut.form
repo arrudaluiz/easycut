@@ -337,6 +337,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadBttCadastrarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="cadBttEntrar">
               <Properties>
@@ -450,6 +453,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Reservar Hor&#xe1;rio"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cliBttReservarHorarioActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="cliBttExcluirReserva">
               <Properties>
@@ -461,6 +467,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Excluir Reserva"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cliBttExcluirReservaActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="cliBttSair">
               <Properties>
@@ -482,6 +491,9 @@
                   <Color id="Default Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cliBttSairActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -602,6 +614,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resBoxServicoActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -631,6 +646,9 @@
                 </Property>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resBoxFuncionarioActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -652,6 +670,9 @@
               <Properties>
                 <Property name="dch_enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="onSelectionChange" listener="datechooser.events.SelectionChangedListener" parameters="datechooser.events.SelectionChangedEvent" handler="resChoDataOnSelectionChange"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="resLblHorario">
               <Properties>
@@ -667,9 +688,6 @@
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="resScrHorario">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -679,21 +697,25 @@
                 <Component class="javax.swing.JList" name="resLstHorario">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="10">
-                        <StringItem index="0" value="8:00"/>
-                        <StringItem index="1" value="9:00"/>
-                        <StringItem index="2" value="10:00"/>
-                        <StringItem index="3" value="11:00"/>
-                        <StringItem index="4" value="12:00"/>
-                        <StringItem index="5" value="13:00"/>
-                        <StringItem index="6" value="14:00"/>
-                        <StringItem index="7" value="15:00"/>
-                        <StringItem index="8" value="16:00"/>
-                        <StringItem index="9" value="17:00"/>
+                      <StringArray count="11">
+                        <StringItem index="0" value=""/>
+                        <StringItem index="1" value="8:00"/>
+                        <StringItem index="2" value="9:00"/>
+                        <StringItem index="3" value="10:00"/>
+                        <StringItem index="4" value="11:00"/>
+                        <StringItem index="5" value="12:00"/>
+                        <StringItem index="6" value="13:00"/>
+                        <StringItem index="7" value="14:00"/>
+                        <StringItem index="8" value="15:00"/>
+                        <StringItem index="9" value="16:00"/>
+                        <StringItem index="10" value="17:00"/>
                       </StringArray>
                     </Property>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="resLstHorarioMouseClicked"/>
+                    <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="resLstHorarioValueChanged"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -711,6 +733,9 @@
                 <Property name="text" type="java.lang.String" value="Reservar"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resBttReservarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="resBttCancelar">
               <Properties>
