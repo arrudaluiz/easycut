@@ -83,6 +83,7 @@ public class EasyCut extends javax.swing.JFrame {
         pnlPrincipal.setLayout(new java.awt.CardLayout());
 
         pnlLogin.setBackground(new java.awt.Color(255, 255, 255));
+        pnlLogin.setName("login"); // NOI18N
 
         logLblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/logoEasyCut.png"))); // NOI18N
 
@@ -160,6 +161,7 @@ public class EasyCut extends javax.swing.JFrame {
         pnlPrincipal.add(pnlLogin, "card2");
 
         pnlCadastro.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCadastro.setName("cadastro"); // NOI18N
 
         cadLblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/logoEasyCut.png"))); // NOI18N
 
@@ -267,6 +269,7 @@ public class EasyCut extends javax.swing.JFrame {
         pnlPrincipal.add(pnlCadastro, "card3");
 
         pnlCliente.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCliente.setName("cliente"); // NOI18N
 
         cliLblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/logoEasyCut.png"))); // NOI18N
 
@@ -346,6 +349,7 @@ public class EasyCut extends javax.swing.JFrame {
         pnlPrincipal.add(pnlCliente, "card4");
 
         pnlReservarHorario.setBackground(new java.awt.Color(255, 255, 255));
+        pnlReservarHorario.setName("reservar"); // NOI18N
 
         resLblTitulo.setBackground(new java.awt.Color(102, 0, 153));
         resLblTitulo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -403,11 +407,6 @@ public class EasyCut extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        resLstHorario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                resLstHorarioMouseClicked(evt);
-            }
-        });
         resLstHorario.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 resLstHorarioValueChanged(evt);
@@ -428,6 +427,11 @@ public class EasyCut extends javax.swing.JFrame {
         resBttCancelar.setBackground(new java.awt.Color(255, 255, 255));
         resBttCancelar.setForeground(new java.awt.Color(102, 0, 153));
         resBttCancelar.setText("Cancelar");
+        resBttCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resBttCancelarActionPerformed(evt);
+            }
+        });
 
         resBttSair.setBackground(new java.awt.Color(255, 255, 255));
         resBttSair.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -436,6 +440,11 @@ public class EasyCut extends javax.swing.JFrame {
         resBttSair.setBorder(null);
         resBttSair.setBorderPainted(false);
         resBttSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        resBttSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resBttSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlReservarHorarioLayout = new javax.swing.GroupLayout(pnlReservarHorario);
         pnlReservarHorario.setLayout(pnlReservarHorarioLayout);
@@ -497,6 +506,7 @@ public class EasyCut extends javax.swing.JFrame {
         pnlPrincipal.add(pnlReservarHorario, "card5");
 
         pnlExcluirReserva.setBackground(new java.awt.Color(255, 255, 255));
+        pnlExcluirReserva.setName("excluir"); // NOI18N
 
         javax.swing.GroupLayout pnlExcluirReservaLayout = new javax.swing.GroupLayout(pnlExcluirReserva);
         pnlExcluirReserva.setLayout(pnlExcluirReservaLayout);
@@ -512,6 +522,7 @@ public class EasyCut extends javax.swing.JFrame {
         pnlPrincipal.add(pnlExcluirReserva, "card6");
 
         pnlFuncionario.setBackground(new java.awt.Color(255, 255, 255));
+        pnlFuncionario.setName("funcionario"); // NOI18N
 
         javax.swing.GroupLayout pnlFuncionarioLayout = new javax.swing.GroupLayout(pnlFuncionario);
         pnlFuncionario.setLayout(pnlFuncionarioLayout);
@@ -545,13 +556,40 @@ public class EasyCut extends javax.swing.JFrame {
         pnlPrincipal.add(pnl);
         pnlPrincipal.repaint();
         pnlPrincipal.revalidate();
+        
+        switch (pnl.getName()) {
+            case "login":
+                logTxtUsuario.setText("");
+                logPassSenha.setText("");
+                break;
+                
+            case "cadastro":
+                cadTxtNome.setText("");
+                cadTxtCPF.setText("");
+                cadTxtUsuario.setText("");
+                cadPassSenha.setText("");
+                break;
+                
+            case "cliente":
+                cliLblOla.setText("Olá " + logTxtUsuario.getText() + "!");
+                break;
+                
+            case "reservar":
+                resChoData.setMinDate(resChoData.getDefaultPeriods().getFirstDate());
+                resBoxServico.setSelectedIndex(0);
+                break;
+                
+            case "excluir":
+                break;
+        }
+            
     }
     
     private void logBttEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logBttEntrarActionPerformed
         // Validar login
+        //
         // Se cliente:
         alterarTela(pnlCliente);
-        cliLblOla.setText("Olá " + logTxtUsuario.getText() + "!");
         
         // Se funcionário:
         //alterarTela(pnlFuncionario);
@@ -559,30 +597,20 @@ public class EasyCut extends javax.swing.JFrame {
 
     private void logBttCadastrarSeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logBttCadastrarSeActionPerformed
         alterarTela(pnlCadastro);
-        cadTxtNome.setText("");
-        cadTxtCPF.setText("");
-        cadTxtUsuario.setText("");
-        cadPassSenha.setText("");
     }//GEN-LAST:event_logBttCadastrarSeActionPerformed
 
     private void cadBttEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBttEntrarActionPerformed
         alterarTela(pnlLogin);
-        logTxtUsuario.setText("");
-        logPassSenha.setText("");
     }//GEN-LAST:event_cadBttEntrarActionPerformed
 
     private void cadBttCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBttCadastrarActionPerformed
         // Validar cadastro
         //
         alterarTela(pnlLogin);
-        logTxtUsuario.setText("");
-        logPassSenha.setText("");
     }//GEN-LAST:event_cadBttCadastrarActionPerformed
 
     private void cliBttReservarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cliBttReservarHorarioActionPerformed
         alterarTela(pnlReservarHorario);
-        resChoData.setMinDate(resChoData.getDefaultPeriods().getFirstDate());
-        resBoxServico.setSelectedIndex(0);
     }//GEN-LAST:event_cliBttReservarHorarioActionPerformed
 
     private void cliBttExcluirReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cliBttExcluirReservaActionPerformed
@@ -590,6 +618,8 @@ public class EasyCut extends javax.swing.JFrame {
     }//GEN-LAST:event_cliBttExcluirReservaActionPerformed
 
     private void cliBttSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cliBttSairActionPerformed
+        // Deslogar usuário
+        //
         alterarTela(pnlLogin);
     }//GEN-LAST:event_cliBttSairActionPerformed
 
@@ -627,10 +657,6 @@ public class EasyCut extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_resChoDataOnSelectionChange
 
-    private void resLstHorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resLstHorarioMouseClicked
-        
-    }//GEN-LAST:event_resLstHorarioMouseClicked
-
     private void resLstHorarioValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_resLstHorarioValueChanged
         if (resLstHorario.getSelectedIndex() == 0) {
             resBttReservar.setEnabled(false);
@@ -644,6 +670,16 @@ public class EasyCut extends javax.swing.JFrame {
         //
         alterarTela(pnlCliente);
     }//GEN-LAST:event_resBttReservarActionPerformed
+
+    private void resBttCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resBttCancelarActionPerformed
+        alterarTela(pnlCliente);
+    }//GEN-LAST:event_resBttCancelarActionPerformed
+
+    private void resBttSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resBttSairActionPerformed
+        // Deslogar usuário
+        //
+        alterarTela(pnlLogin);
+    }//GEN-LAST:event_resBttSairActionPerformed
 
     /**
      * @param args the command line arguments
