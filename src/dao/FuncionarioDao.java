@@ -55,7 +55,7 @@ public class FuncionarioDao {
 
     }
     
-        public String consultarLogin(String login) {
+    public String consultarLogin(String login) {
         String sql = "USU_LOGIN FROM USUARIO AS U WHERE U.USU_LOGIN = ?;";
 
         try {
@@ -63,14 +63,13 @@ public class FuncionarioDao {
             PreparedStatement sentenca = con.prepareStatement(sql);
 
             sentenca.setString(1, login);
-
+            
             sentenca.close();
             con.close();
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
-        return ;
-
+        return "";
     }
 
 
