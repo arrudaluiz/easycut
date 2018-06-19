@@ -31,7 +31,7 @@ public class EasyCut extends javax.swing.JFrame {
         pnlLogin = new javax.swing.JPanel();
         logLblLogo = new javax.swing.JLabel();
         logLblUsuario = new javax.swing.JLabel();
-        LogTxtUsuario = new javax.swing.JTextField();
+        logTxtUsuario = new javax.swing.JTextField();
         logLblSenha = new javax.swing.JLabel();
         logPassSenha = new javax.swing.JPasswordField();
         logBttEntrar = new javax.swing.JButton();
@@ -107,6 +107,11 @@ public class EasyCut extends javax.swing.JFrame {
         logBttCadastrarSe.setBorder(null);
         logBttCadastrarSe.setBorderPainted(false);
         logBttCadastrarSe.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        logBttCadastrarSe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logBttCadastrarSeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
         pnlLogin.setLayout(pnlLoginLayout);
@@ -128,7 +133,7 @@ public class EasyCut extends javax.swing.JFrame {
                             .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(logPassSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(logLblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(LogTxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(logTxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(logLblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(97, 97, 97))))
         );
@@ -140,7 +145,7 @@ public class EasyCut extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(logLblUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LogTxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logTxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(logLblSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -187,6 +192,11 @@ public class EasyCut extends javax.swing.JFrame {
         cadBttEntrar.setBorder(null);
         cadBttEntrar.setBorderPainted(false);
         cadBttEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cadBttEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadBttEntrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlCadastroLayout = new javax.swing.GroupLayout(pnlCadastro);
         pnlCadastro.setLayout(pnlCadastroLayout);
@@ -494,10 +504,25 @@ public class EasyCut extends javax.swing.JFrame {
         // Validar login
         // Se cliente:
         alterarTela(pnlCliente);
+        cliLblOla.setText("Olá " + logTxtUsuario.getText() + "!");
         
         // Se funcionário:
         //alterarTela(pnlFuncionario);
     }//GEN-LAST:event_logBttEntrarActionPerformed
+
+    private void logBttCadastrarSeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logBttCadastrarSeActionPerformed
+        alterarTela(pnlCadastro);
+        cadTxtNome.setText("");
+        cadTxtCPF.setText("");
+        cadTxtUsuario.setText("");
+        cadPassSenha.setText("");
+    }//GEN-LAST:event_logBttCadastrarSeActionPerformed
+
+    private void cadBttEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBttEntrarActionPerformed
+        alterarTela(pnlLogin);
+        logTxtUsuario.setText("");
+        logPassSenha.setText("");
+    }//GEN-LAST:event_cadBttEntrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -535,7 +560,6 @@ public class EasyCut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField LogTxtUsuario;
     private javax.swing.JButton cadBttCadastrar;
     private javax.swing.JButton cadBttEntrar;
     private javax.swing.JLabel cadLblCPF;
@@ -560,6 +584,7 @@ public class EasyCut extends javax.swing.JFrame {
     private javax.swing.JLabel logLblSenha;
     private javax.swing.JLabel logLblUsuario;
     private javax.swing.JPasswordField logPassSenha;
+    private javax.swing.JTextField logTxtUsuario;
     private javax.swing.JPanel pnlCadastro;
     private javax.swing.JPanel pnlCliente;
     private javax.swing.JPanel pnlExcluirReserva;

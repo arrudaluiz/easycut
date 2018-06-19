@@ -83,7 +83,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="logPassSenha" min="-2" pref="200" max="-2" attributes="0"/>
                                       <Component id="logLblSenha" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <Component id="LogTxtUsuario" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="logTxtUsuario" min="-2" pref="200" max="-2" attributes="0"/>
                                       <Component id="logLblUsuario" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -101,7 +101,7 @@
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="logLblUsuario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="LogTxtUsuario" min="-2" max="-2" attributes="0"/>
+                      <Component id="logTxtUsuario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="logLblSenha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -131,7 +131,7 @@
                 <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="LogTxtUsuario">
+            <Component class="javax.swing.JTextField" name="logTxtUsuario">
             </Component>
             <Component class="javax.swing.JLabel" name="logLblSenha">
               <Properties>
@@ -174,6 +174,9 @@
                   <Color id="Default Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logBttCadastrarSeActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -352,6 +355,9 @@
                   <Color id="Default Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadBttEntrarActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
