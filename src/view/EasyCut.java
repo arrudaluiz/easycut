@@ -919,8 +919,9 @@ public class EasyCut extends javax.swing.JFrame {
                 break;
                 
             case "funcionario":
-                
-                funChoData.setSelectedDate(funChoData.getDefaultPeriods().getFirstDate());
+                funChoData.setMinDate(funChoData.getDefaultPeriods().getFirstDate());
+                funChoData.setSelectedDate(null);
+                funLblAgendaDoDia.setText("Selecione uma data");
                 break;
         }
     }
@@ -1110,10 +1111,13 @@ public class EasyCut extends javax.swing.JFrame {
     }//GEN-LAST:event_funBttExcluirActionPerformed
 
     private void funChoDataOnSelectionChange(datechooser.events.SelectionChangedEvent evt) {//GEN-FIRST:event_funChoDataOnSelectionChange
+        funBttExcluir.setEnabled(false);
+        
         if (funChoData.getSelectedDate() == null) {
+            funLblAgendaDoDia.setText("Selecione uma data");
             funTblAgenda.setVisible(false);
         } else {
-            SimpleDateFormat data = new SimpleDateFormat("dd de MM");
+            SimpleDateFormat data = new SimpleDateFormat("dd/MM");
             funLblAgendaDoDia.setText("Reservas agendadas para o dia " + data.format(funChoData.getSelectedDate().getTime()));
             
             // Carregar horários reservados do funcinário na data selecionada
