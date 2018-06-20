@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author luiz
@@ -78,11 +82,20 @@ public class EasyCut extends javax.swing.JFrame {
         excBttSair = new javax.swing.JButton();
         excSeparador = new javax.swing.JSeparator();
         excLblReserva = new javax.swing.JLabel();
-        excBttExcluir = new javax.swing.JButton();
-        excBttCancelar = new javax.swing.JButton();
         excScrReservas = new javax.swing.JScrollPane();
         excTblReservas = new javax.swing.JTable();
+        excBttExcluir = new javax.swing.JButton();
+        excBttCancelar = new javax.swing.JButton();
         pnlFuncionario = new javax.swing.JPanel();
+        funLblTitulo = new javax.swing.JLabel();
+        funLblOla = new javax.swing.JLabel();
+        funBttSair = new javax.swing.JButton();
+        funSeparador = new javax.swing.JSeparator();
+        funChoData = new datechooser.beans.DateChooserCombo();
+        funLblAgendaDoDia = new javax.swing.JLabel();
+        funScrAgenda = new javax.swing.JScrollPane();
+        funTblAgenda = new javax.swing.JTable();
+        funBttExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EasyCut");
@@ -401,6 +414,7 @@ public class EasyCut extends javax.swing.JFrame {
         resLblData.setFocusable(false);
 
         resChoData.setEnabled(false);
+        resChoData.setLocale(new java.util.Locale("pt", "BR", ""));
         resChoData.addSelectionChangedListener(new datechooser.events.SelectionChangedListener() {
             public void onSelectionChange(datechooser.events.SelectionChangedEvent evt) {
                 resChoDataOnSelectionChange(evt);
@@ -571,25 +585,6 @@ public class EasyCut extends javax.swing.JFrame {
         excLblReserva.setForeground(new java.awt.Color(102, 0, 153));
         excLblReserva.setText("Horários reservados:");
 
-        excBttExcluir.setBackground(new java.awt.Color(102, 0, 153));
-        excBttExcluir.setForeground(new java.awt.Color(255, 255, 255));
-        excBttExcluir.setText("Excluir");
-        excBttExcluir.setEnabled(false);
-        excBttExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                excBttExcluirActionPerformed(evt);
-            }
-        });
-
-        excBttCancelar.setBackground(new java.awt.Color(255, 255, 255));
-        excBttCancelar.setForeground(new java.awt.Color(102, 0, 153));
-        excBttCancelar.setText("Cancelar");
-        excBttCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                excBttCancelarActionPerformed(evt);
-            }
-        });
-
         excTblReservas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null,  new Boolean(false)},
@@ -632,9 +627,29 @@ public class EasyCut extends javax.swing.JFrame {
             excTblReservas.getColumnModel().getColumn(0).setResizable(false);
             excTblReservas.getColumnModel().getColumn(1).setResizable(false);
             excTblReservas.getColumnModel().getColumn(2).setResizable(false);
+            excTblReservas.getColumnModel().getColumn(2).setHeaderValue("Data");
             excTblReservas.getColumnModel().getColumn(3).setResizable(false);
             excTblReservas.getColumnModel().getColumn(4).setResizable(false);
         }
+
+        excBttExcluir.setBackground(new java.awt.Color(102, 0, 153));
+        excBttExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        excBttExcluir.setText("Excluir");
+        excBttExcluir.setEnabled(false);
+        excBttExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excBttExcluirActionPerformed(evt);
+            }
+        });
+
+        excBttCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        excBttCancelar.setForeground(new java.awt.Color(102, 0, 153));
+        excBttCancelar.setText("Cancelar");
+        excBttCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excBttCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlExcluirReservaLayout = new javax.swing.GroupLayout(pnlExcluirReserva);
         pnlExcluirReserva.setLayout(pnlExcluirReservaLayout);
@@ -698,15 +713,154 @@ public class EasyCut extends javax.swing.JFrame {
         pnlFuncionario.setBackground(new java.awt.Color(255, 255, 255));
         pnlFuncionario.setName("funcionario"); // NOI18N
 
+        funLblTitulo.setBackground(new java.awt.Color(102, 0, 153));
+        funLblTitulo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        funLblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        funLblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        funLblTitulo.setText("Reservas Agendadas");
+        funLblTitulo.setOpaque(true);
+
+        funLblOla.setForeground(new java.awt.Color(102, 0, 153));
+        funLblOla.setText("Olá Usuário!");
+
+        funBttSair.setBackground(new java.awt.Color(255, 255, 255));
+        funBttSair.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        funBttSair.setForeground(new java.awt.Color(102, 0, 153));
+        funBttSair.setText("(sair)");
+        funBttSair.setBorder(null);
+        funBttSair.setBorderPainted(false);
+        funBttSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        funBttSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funBttSairActionPerformed(evt);
+            }
+        });
+
+        funSeparador.setBackground(new java.awt.Color(204, 204, 204));
+        funSeparador.setForeground(new java.awt.Color(153, 153, 153));
+
+        funChoData.setLocale(new java.util.Locale("pt", "BR", ""));
+        funChoData.addSelectionChangedListener(new datechooser.events.SelectionChangedListener() {
+            public void onSelectionChange(datechooser.events.SelectionChangedEvent evt) {
+                funChoDataOnSelectionChange(evt);
+            }
+        });
+
+        funLblAgendaDoDia.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        funLblAgendaDoDia.setForeground(new java.awt.Color(102, 0, 153));
+        funLblAgendaDoDia.setText("Agenda do dia");
+
+        funTblAgenda.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null,  new Boolean(false)},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Cliente", "Serviço", "Hora", "Selecionar"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        funTblAgenda.getTableHeader().setReorderingAllowed(false);
+        funTblAgenda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                funTblAgendaMouseClicked(evt);
+            }
+        });
+        funTblAgenda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                funTblAgendaKeyPressed(evt);
+            }
+        });
+        funScrAgenda.setViewportView(funTblAgenda);
+        if (funTblAgenda.getColumnModel().getColumnCount() > 0) {
+            funTblAgenda.getColumnModel().getColumn(0).setResizable(false);
+            funTblAgenda.getColumnModel().getColumn(1).setResizable(false);
+            funTblAgenda.getColumnModel().getColumn(2).setResizable(false);
+            funTblAgenda.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        funBttExcluir.setBackground(new java.awt.Color(102, 0, 153));
+        funBttExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        funBttExcluir.setText("Excluir Horário(s)");
+        funBttExcluir.setEnabled(false);
+        funBttExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funBttExcluirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlFuncionarioLayout = new javax.swing.GroupLayout(pnlFuncionario);
         pnlFuncionario.setLayout(pnlFuncionarioLayout);
         pnlFuncionarioLayout.setHorizontalGroup(
             pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(pnlFuncionarioLayout.createSequentialGroup()
+                .addComponent(funLblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFuncionarioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(funChoData, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
+            .addGroup(pnlFuncionarioLayout.createSequentialGroup()
+                .addGroup(pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlFuncionarioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlFuncionarioLayout.createSequentialGroup()
+                                .addComponent(funLblOla, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(funBttSair))
+                            .addGroup(pnlFuncionarioLayout.createSequentialGroup()
+                                .addComponent(funSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(pnlFuncionarioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(funScrAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(pnlFuncionarioLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(funBttExcluir)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFuncionarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(funLblAgendaDoDia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlFuncionarioLayout.setVerticalGroup(
             pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(pnlFuncionarioLayout.createSequentialGroup()
+                .addComponent(funLblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(funLblOla)
+                    .addComponent(funBttSair))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(funSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(funChoData, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(funLblAgendaDoDia)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(funScrAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(funBttExcluir)
+                .addGap(0, 200, Short.MAX_VALUE))
         );
 
         pnlPrincipal.add(pnlFuncionario, "card7");
@@ -750,6 +904,8 @@ public class EasyCut extends javax.swing.JFrame {
                 */
                 
             case "reservar":
+                // Carregar serviços do banco
+                //
                 resChoData.setMinDate(resChoData.getDefaultPeriods().getFirstDate());
                 resBoxServico.setSelectedIndex(0);
                 break;
@@ -761,20 +917,28 @@ public class EasyCut extends javax.swing.JFrame {
                     excTblReservas.setValueAt(false, i, 4);
                 }
                 break;
+                
+            case "funcionario":
+                
+                funChoData.setSelectedDate(funChoData.getDefaultPeriods().getFirstDate());
+                break;
         }
     }
     
     private void logBttEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logBttEntrarActionPerformed
         // Validar login
         //
-        // Se cliente:
-        alterarTela(pnlCliente);
-        cliLblOla.setText("Olá " + logTxtUsuario.getText());
-        resLblOla.setText("Olá " + logTxtUsuario.getText());
-        excLblOla.setText("Olá " + logTxtUsuario.getText());
-        
-        // Se funcionário:
-        //alterarTela(pnlFuncionario);
+        if (!logPassSenha.getText().equals("1")) {
+            // Se cliente
+            alterarTela(pnlCliente);
+            cliLblOla.setText("Olá " + logTxtUsuario.getText());
+            resLblOla.setText("Olá " + logTxtUsuario.getText());
+            excLblOla.setText("Olá " + logTxtUsuario.getText());
+        } else {
+            // Se funcionário
+            alterarTela(pnlFuncionario);
+            funLblOla.setText("Olá " + logTxtUsuario.getText());
+        }
     }//GEN-LAST:event_logBttEntrarActionPerformed
 
     private void logBttCadastrarSeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logBttCadastrarSeActionPerformed
@@ -789,6 +953,8 @@ public class EasyCut extends javax.swing.JFrame {
         // Validar cadastro
         //
         alterarTela(pnlLogin);
+        // Informar que o usuário foi cadastrado com sucesso
+        //
     }//GEN-LAST:event_cadBttCadastrarActionPerformed
 
     private void cliBttReservarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cliBttReservarHorarioActionPerformed
@@ -812,6 +978,8 @@ public class EasyCut extends javax.swing.JFrame {
             resBoxFuncionario.setEnabled(false);
             resLblFuncionario.setEnabled(false);
         } else {
+            // Carregar funcionários que realizam o serviço selecionado
+            //
             resLblFuncionario.setEnabled(true);
             resBoxFuncionario.setEnabled(true);
         }
@@ -835,6 +1003,8 @@ public class EasyCut extends javax.swing.JFrame {
         if (resChoData.getSelectedDate() == null) {
             resLstHorario.setVisible(false);
         } else {
+            // Carregar horários vagos do funcinário na data selecionada
+            //
             resLstHorario.setVisible(true);
         }
     }//GEN-LAST:event_resChoDataOnSelectionChange
@@ -851,6 +1021,7 @@ public class EasyCut extends javax.swing.JFrame {
         // Registrar reserva
         //
         alterarTela(pnlCliente);
+        // Informar que serviço foi confirmado
     }//GEN-LAST:event_resBttReservarActionPerformed
 
     private void resBttCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resBttCancelarActionPerformed
@@ -867,6 +1038,7 @@ public class EasyCut extends javax.swing.JFrame {
         // Excluir reserva(s) selecionada(s)
         //
         alterarTela(pnlCliente);
+        // Informar que a(s) reserva(s) foi(ram) excluída(s) com sucesso
     }//GEN-LAST:event_excBttExcluirActionPerformed
 
     private void excBttCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excBttCancelarActionPerformed
@@ -887,13 +1059,73 @@ public class EasyCut extends javax.swing.JFrame {
                 reserva = true;
             }
         }
-        
         excBttExcluir.setEnabled(reserva);
     }//GEN-LAST:event_excTblReservasMouseClicked
 
     private void excTblReservasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_excTblReservasKeyPressed
-        System.out.println(excTblReservas.getColumnName(3));
+        boolean reserva = false;
+        
+        for (int i = 0; i < excTblReservas.getRowCount(); i++) {
+            if (excTblReservas.getValueAt(i, 4).equals(true)) {
+                reserva = true;
+            }
+        }
+        excBttExcluir.setEnabled(reserva);
     }//GEN-LAST:event_excTblReservasKeyPressed
+
+    private void funBttSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funBttSairActionPerformed
+        // Deslogar usuário
+        //
+        alterarTela(pnlLogin);
+    }//GEN-LAST:event_funBttSairActionPerformed
+
+    private void funTblAgendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_funTblAgendaMouseClicked
+        boolean reserva = false;
+        
+        for (int i = 0; i < funTblAgenda.getRowCount(); i++) {
+            if (funTblAgenda.getValueAt(i, 3).equals(true)) {
+                reserva = true;
+            }
+        }
+        funBttExcluir.setEnabled(reserva);
+    }//GEN-LAST:event_funTblAgendaMouseClicked
+
+    private void funTblAgendaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_funTblAgendaKeyPressed
+        boolean reserva = false;
+        
+        for (int i = 0; i < funTblAgenda.getRowCount(); i++) {
+            if (funTblAgenda.getValueAt(i, 3).equals(true)) {
+                reserva = true;
+            }
+        }
+        funBttExcluir.setEnabled(reserva);
+    }//GEN-LAST:event_funTblAgendaKeyPressed
+
+    private void funBttExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funBttExcluirActionPerformed
+        // Excluir reserva(s) selecionada(s)
+        //
+        // Informar que a(s) reserva(s) foi(ram) excluída(s) com sucesso
+        //
+        alterarTela(pnlFuncionario);
+    }//GEN-LAST:event_funBttExcluirActionPerformed
+
+    private void funChoDataOnSelectionChange(datechooser.events.SelectionChangedEvent evt) {//GEN-FIRST:event_funChoDataOnSelectionChange
+        if (funChoData.getSelectedDate() == null) {
+            funTblAgenda.setVisible(false);
+        } else {
+            SimpleDateFormat data = new SimpleDateFormat("dd de MM");
+            funLblAgendaDoDia.setText("Reservas agendadas para o dia " + data.format(funChoData.getSelectedDate().getTime()));
+            
+            // Carregar horários reservados do funcinário na data selecionada
+            //
+            
+            funTblAgenda.setVisible(true);
+        }
+        
+        for (int i = 0; i < funTblAgenda.getRowCount(); i++) {
+            funTblAgenda.setValueAt(false, i, 3);
+        }
+    }//GEN-LAST:event_funChoDataOnSelectionChange
 
     /**
      * @param args the command line arguments
@@ -958,6 +1190,15 @@ public class EasyCut extends javax.swing.JFrame {
     private javax.swing.JScrollPane excScrReservas;
     private javax.swing.JSeparator excSeparador;
     private javax.swing.JTable excTblReservas;
+    private javax.swing.JButton funBttExcluir;
+    private javax.swing.JButton funBttSair;
+    private datechooser.beans.DateChooserCombo funChoData;
+    private javax.swing.JLabel funLblAgendaDoDia;
+    private javax.swing.JLabel funLblOla;
+    private javax.swing.JLabel funLblTitulo;
+    private javax.swing.JScrollPane funScrAgenda;
+    private javax.swing.JSeparator funSeparador;
+    private javax.swing.JTable funTblAgenda;
     private javax.swing.JButton logBttCadastrarSe;
     private javax.swing.JButton logBttEntrar;
     private javax.swing.JLabel logLblLogo;
