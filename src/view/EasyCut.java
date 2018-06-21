@@ -5,6 +5,7 @@
  */
 package view;
 
+import dao.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -817,20 +818,16 @@ public class EasyCut extends javax.swing.JFrame {
                 .addComponent(funChoData, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
             .addGroup(pnlFuncionarioLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFuncionarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlFuncionarioLayout.createSequentialGroup()
-                                .addComponent(funLblOla, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(funBttSair))
-                            .addGroup(pnlFuncionarioLayout.createSequentialGroup()
-                                .addComponent(funSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(funLblOla, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(funBttSair))
                     .addGroup(pnlFuncionarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(funScrAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(funSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(funScrAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(pnlFuncionarioLayout.createSequentialGroup()
@@ -878,7 +875,9 @@ public class EasyCut extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //private List<String> consultarServ(
+    
     private void alterarTela(javax.swing.JPanel pnl) {
         pnlPrincipal.removeAll();
         pnlPrincipal.add(pnl);
@@ -906,6 +905,9 @@ public class EasyCut extends javax.swing.JFrame {
             case "reservar":
                 // Carregar serviços do banco
                 //
+                ServicoDAO servico = new ServicoDAO();
+                servico.consultarServ().forEach(s -> System.out.println(s));
+                //System.out.println()
                 resChoData.setMinDate(resChoData.getDefaultPeriods().getFirstDate());
                 resBoxServico.setSelectedIndex(0);
                 break;
@@ -932,13 +934,13 @@ public class EasyCut extends javax.swing.JFrame {
         if (!logPassSenha.getText().equals("1")) {
             // Se cliente
             alterarTela(pnlCliente);
-            cliLblOla.setText("Olá " + logTxtUsuario.getText());
-            resLblOla.setText("Olá " + logTxtUsuario.getText());
-            excLblOla.setText("Olá " + logTxtUsuario.getText());
+            cliLblOla.setText("Olá " + logTxtUsuario.getText() + "!");
+            resLblOla.setText("Olá " + logTxtUsuario.getText() + "!");
+            excLblOla.setText("Olá " + logTxtUsuario.getText() + "!");
         } else {
             // Se funcionário
             alterarTela(pnlFuncionario);
-            funLblOla.setText("Olá " + logTxtUsuario.getText());
+            funLblOla.setText("Olá " + logTxtUsuario.getText() + "!");
         }
     }//GEN-LAST:event_logBttEntrarActionPerformed
 
@@ -1020,7 +1022,7 @@ public class EasyCut extends javax.swing.JFrame {
 
     private void resBttReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resBttReservarActionPerformed
         // Registrar reserva
-        //
+        
         alterarTela(pnlCliente);
         // Informar que serviço foi confirmado
     }//GEN-LAST:event_resBttReservarActionPerformed

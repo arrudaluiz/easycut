@@ -80,14 +80,7 @@ public class ServicoDAO {
         return resultados;
 
     }
-        public static void main(String... args) {
-        ServicoDAO dao = new ServicoDAO();
-
-      dao.consultarServ().forEach(s -> System.out.println(s));
-    }
     
-    
-
     public void arquivar(Integer id){
         String sql = "UPDATE SERVICO SET SER_REMOVE = 1 WHERE SER_COD = ?";
         
