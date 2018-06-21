@@ -7,8 +7,6 @@ package view;
 
 import dao.*;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  *
@@ -22,7 +20,7 @@ public class EasyCut extends javax.swing.JFrame {
     public EasyCut() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -876,8 +874,6 @@ public class EasyCut extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    //private List<String> consultarServ(
-    
     private void alterarTela(javax.swing.JPanel pnl) {
         pnlPrincipal.removeAll();
         pnlPrincipal.add(pnl);
@@ -903,12 +899,16 @@ public class EasyCut extends javax.swing.JFrame {
                 */
                 
             case "reservar":
-                // Carregar serviços do banco
-                //
-                ServicoDAO servico = new ServicoDAO();
-                servico.consultarServ().forEach(s -> System.out.println(s));
-                //System.out.println()
+                ServicoDAO listaServico = new ServicoDAO();
+                
                 resChoData.setMinDate(resChoData.getDefaultPeriods().getFirstDate());
+                
+                resBoxServico.removeAllItems();
+                resBoxServico.addItem("");
+                // Preenchendo a lista de serviços
+                for (String servico : listaServico.consultarServ()) {
+                    resBoxServico.addItem(servico);
+                }
                 resBoxServico.setSelectedIndex(0);
                 break;
                 
@@ -975,17 +975,22 @@ public class EasyCut extends javax.swing.JFrame {
     }//GEN-LAST:event_cliBttSairActionPerformed
 
     private void resBoxServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resBoxServicoActionPerformed
-        resBoxFuncionario.setSelectedIndex(0);
-        
         if (resBoxServico.getSelectedIndex() == 0) {
             resBoxFuncionario.setEnabled(false);
             resLblFuncionario.setEnabled(false);
         } else {
+            FuncionarioDao listaFuncionario = new FuncionarioDao();
+            resBoxFuncionario.removeAllItems();
+            resBoxFuncionario.addItem("");
             // Carregar funcionários que realizam o serviço selecionado
-            //
+            int id = resBoxServico.getSelectedIndex()-1;
+            for (String funcionario : listaFuncionario.consultarFun(id)) {
+                resBoxFuncionario.addItem(funcionario);
+            }
             resLblFuncionario.setEnabled(true);
             resBoxFuncionario.setEnabled(true);
         }
+        resBoxFuncionario.setSelectedIndex(0);
     }//GEN-LAST:event_resBoxServicoActionPerformed
 
     private void resBoxFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resBoxFuncionarioActionPerformed

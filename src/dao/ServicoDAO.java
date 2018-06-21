@@ -58,7 +58,7 @@ public class ServicoDAO {
     
                     /// Retorna Algo
     public List<String> consultarServ() {
-        String sql = "SELECT SER_NAME FROM SERVICO;";
+        String sql = "SELECT SER_NAME FROM SERVICO ORDER BY SER_COD;";
 
         List<String> resultados = new ArrayList<>();
         

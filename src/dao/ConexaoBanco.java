@@ -10,7 +10,7 @@ public class ConexaoBanco {
 
     public static Connection getConexao() {
         try {
-        return DriverManager.getConnection("jdbc:mysql://localhost/easycut", "root", "11049812");
+        return DriverManager.getConnection("jdbc:mysql://localhost/easycut", "luiz", "7342");
         } catch (SQLException ex) {
             Logger.getLogger(ConexaoBanco.class.getName()).log(Level.SEVERE, null, ex);
         }

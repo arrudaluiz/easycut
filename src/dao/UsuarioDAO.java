@@ -75,7 +75,6 @@ public class UsuarioDAO implements DaoGenerica<Usuario> {
         }
     }
 
-    @Override
     public ArrayList<Usuario> consultar() {
         String sql = "SELECT * FROM USUARIO";
         ArrayList<Usuario> usuarios = new ArrayList<>();
